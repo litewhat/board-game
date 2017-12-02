@@ -1,14 +1,13 @@
 from game.console import Console
 from game.exceptions import GameStoppedException
-from game.core.models import BaseModel
+from game.core.models import Model
 
 
-
-class Unit(BaseModel):
+class Unit(Model):
     attributes = ('name')
 
 
-class Player(BaseModel):
+class Player(Model):
     attributes = ('name')
 
     def __init__(self, name):
@@ -16,7 +15,7 @@ class Player(BaseModel):
         self.name = name
 
 
-class BaseGame(BaseModel):
+class BaseGame(Model):
 
     def start(self, **kwargs):
         raise NotImplementedError()
@@ -33,22 +32,9 @@ def resolve_actions(handlers, *commands):
 class Game(BaseGame):
     attributes = ('name', 'console', 'player')
 
-    def __init__(self, *, name, console, player, handlers={}):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-        # type checking
-        if not isinstance(name, str):
-            raise TypeError("The name parameter must be a %s type" % str.__name__)
-
-        if not isinstance(console, Console):
-            raise TypeError
-
-        if not isinstance(player, Player):
-            raise TypeError
-
-        self.name = name
-        self.console = console
-        self.player = player
         self.exceptions = []
         self.actions = []
         self.running = False

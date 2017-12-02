@@ -1,5 +1,5 @@
-from game.core import BaseModel
+from game.core import Model
 
 
-class Handler(BaseModel):
-    attributes = ('name',)
+class Handler(Model):
+    attributes = ('name', 'callable')

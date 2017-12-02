@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from game.core import BaseGame, Game, Player
+from game.core import Game, Player
 from game.console import Console
 from game.exceptions import GameStoppedException
 
