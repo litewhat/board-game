@@ -1,0 +1,6 @@
+version: '3'
+services:
+  game:
+    build: .
+    volumes:
+      - ./:/home/game/

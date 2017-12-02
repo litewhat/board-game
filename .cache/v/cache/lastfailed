@@ -1,0 +1,3 @@
+{
+  "src/tests/game/test_game.py::GameCreationTestCase::test_game_attributes": true
+}

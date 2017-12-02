@@ -1,1 +1,4 @@
-{}
+{
+  "tests/game/test_game.py": true,
+  "tests/game/test_game.py::GameCreationTestCase::test_game_attributes": true
+}
